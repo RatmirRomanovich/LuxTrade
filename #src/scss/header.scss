@@ -124,7 +124,8 @@
 	&__menu {
 		opacity: 0;
 		visibility: hidden;
-		top: 78px;
+		transition: all 0.75s ease 0s;
+		top: 98px;
 		right: 0;
 		position: absolute;
 		background: #1c242a;
@@ -136,6 +137,13 @@
 			&:last-child {
 				margin: 0px 0px 0px 0px;
 			}
+		}
+
+		//класс active  подвешивается с помощью js он возвращает нам скрытое меню.
+		&._active {
+			top: 78px;
+			opacity: 1;
+			visibility: visible;
 		}
 	}
 
