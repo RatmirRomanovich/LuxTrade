@@ -214,8 +214,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
-  z-index: 2;
 }
 
 .actions-header__region {
@@ -223,6 +221,8 @@ body {
   line-height: 18px;
   min-width: 18px;
   min-height: 18px;
+  position: relative;
+  z-index: 2;
   background: url("../img/icons/BigGlobe.png") left no-repeat;
 }
 
@@ -231,6 +231,8 @@ body {
 }
 
 .user-header__icon {
+  position: relative;
+  z-index: 2;
   cursor: pointer;
 }
 
@@ -240,11 +242,12 @@ body {
   -webkit-transition: all 0.75s ease 0s;
   -o-transition: all 0.75s ease 0s;
   transition: all 0.75s ease 0s;
-  top: 98px;
+  top: 88px;
   right: 0;
   position: absolute;
   background: #1c242a;
   padding: 20px;
+  min-width: 176px;
 }
 
 .user-header__menu li {
@@ -256,7 +259,7 @@ body {
 }
 
 .user-header__menu._active {
-  top: 58px;
+  top: 78px;
   opacity: 1;
   visibility: visible;
 }
@@ -355,9 +358,10 @@ body {
     padding: 80px 0px 20px 0px;
     opacity: 0;
     visibility: hidden;
-    -webkit-transition: all .3s ease 0s;
-    -o-transition: all .3s ease 0s;
-    transition: all .3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    text-align: center;
   }
 
   .menu__body:after {
@@ -377,7 +381,6 @@ body {
 
   .menu__list {
     display: block;
-    text-align: center;
   }
 
   .menu__list li {
@@ -440,6 +443,20 @@ body {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
     bottom: 8px;
+  }
+
+  .actions-header__region {
+    margin: 30px 0px 0px 0px;
+    padding: 0px 0px 0px 30px;
+    display: inline-block;
+  }
+
+  .actions-header__region span {
+    display: inline-block;
+  }
+
+  .user-header__menu {
+    width: 100%;
   }
 }
 
