@@ -40,7 +40,7 @@ $md4: 479.98;
 body {
 	font-family: "PT Sans";
 	font-size: 14px;
-	line-height: 25px;
+	line-height: 25px; //line-height: calc(25 / 15); тогда будет меняться в зависимости от размера шрифта
 	font-weight: 400;
 }
 
@@ -78,11 +78,172 @@ body {
 
 //<Основная сетка>========================================================================================
 
+
+//<ОСНОВНОЙ БЛОК>=========================================================================================
+.page {
+	flex: 1 1 auto;
+}
+
+//todo section1_Start
+.main-slider {
+	&__body {}
+
+	&__item {}
+
+	&__control {}
+}
+
+.item-main-slider {
+	text-align: center;
+	padding: 30px 0px 100px 0px;
+	position: relative;
+
+	&__content {
+		color: #fff;
+		position: relative;
+		z-index: 2;
+	}
+
+	&__container {}
+
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+
+	&__text {
+		margin: 25px auto 0px auto;
+		max-width: 700px;
+		font-family: "PT Sans";
+		font-size: 15px;
+	}
+
+	//*start_ кнопка(section1)
+	.btn {
+		margin: 55px 0px 0px 0px;
+		display: inline-block;
+		position: relative;
+
+		&:before,
+		&:after {
+			position: absolute;
+			left: 0;
+			height: 3px;
+			width: 100%;
+			content: "";
+		}
+
+		&:before {
+			top: 0;
+			background-color: #c3a774;
+		}
+
+		&:after {
+			bottom: 0;
+			background-color: #8d642d;
+		}
+
+		&__body {
+
+			&:before,
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				height: 100%;
+				width: 3px;
+				background-image: linear-gradient(to top, #8d642d, #c3a774);
+			}
+
+			&:before {
+				left: 0;
+			}
+
+			&:after {
+				right: 0;
+			}
+
+			span {
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+				min-height: 50px;
+				padding: 0px 50px;
+				text-transform: uppercase;
+				letter-spacing: 1.5px;
+				line-height: 21px;
+				color: #fff;
+				font-size: 15px;
+				font-family: "PFDin";
+				position: relative;
+
+				//*start_ делаем градиент
+				&::after {
+					content: "";
+					opacity: 0.06;
+					position: absolute;
+					transition: all .4s ease 0s;
+					height: 50%;
+					top: 0;
+					left: 0;
+					width: 100%;
+					background-image: linear-gradient(to top, #bb9c66 0%, rgba(187, 156, 102, 0) 100%);
+					//*end
+				}
+			}
+
+			//*end
+		}
+
+
+		@media (min-width:992px){
+			&:hover{
+				.btn__body span{
+					&::after{
+						opacity: 0.2;
+						height: 100%;
+					}
+				}
+			}
+		}
+	}
+
+} 
+
+/*
+. {
+
+	&_container {}
+
+	&_ibg {}
+}
+*/
+.title {
+
+	&__item {
+		font-size: 40px;
+		color: #bb9c66;
+		font-family: "ceremonious";
+		margin: 0px 0px 23px 0px;
+	}
+
+	&__main {
+		font-family: "PFDin";
+		font-size: 35px;
+		line-height: 35px;
+		text-transform: uppercase;
+		letter-spacing: 5.25px;
+	}
+}
+
+
+//todo section1_End
+//<ОСНОВНОЙ БЛОК>=========================================================================================
+
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>=========================================================
 @import "header.scss";
 @import "footer.scss";
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>=========================================================
-
-//<ОСНОВНОЙ БЛОК>=========================================================================================
-
-//<ОСНОВНОЙ БЛОК>=========================================================================================
