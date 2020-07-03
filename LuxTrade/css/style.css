@@ -273,6 +273,88 @@ body {
   background-image: linear-gradient(to top, #bb9c66 0%, rgba(187, 156, 102, 0) 100%);
 }
 
+.main-slider {
+  position: relative;
+}
+
+.main-slider__control {
+  position: absolute;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  bottom: 0px;
+  -webkit-transform: translate(-50%, 85%);
+      -ms-transform: translate(-50%, 85%);
+          transform: translate(-50%, 85%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-slider__control:after {
+  content: '';
+  background-color: #fff;
+  position: absolute;
+  width: 72%;
+  height: 72%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+      -ms-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.control-main-slider__arrow {
+  position: relative;
+  z-index: 2;
+  background: url("../img/section1/Shape_6.png") 0 0 no-repeat;
+  width: 14px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.control-main-slider__arrow_next {
+  -webkit-transform: rotate(-180deg);
+      -ms-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+
+.control-main-slider__decor {
+  position: relative;
+  z-index: 2;
+  margin: 0px 12px;
+  -webkit-animation: rotate 5s infinite linear;
+          animation: rotate 5s infinite linear;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
 /*
 . {
 
@@ -603,6 +685,8 @@ body {
     width: 100%;
   }
 }
+
+.webp .control-main-slider__arrow{ background: url(../img/section1/Shape_6.webp) 0 0 no-repeat; }
 
 .webp .actions-header__region{ background: url(../img/icons/BigGlobe.webp) left no-repeat; }
 

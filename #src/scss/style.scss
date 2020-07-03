@@ -85,7 +85,10 @@ body {
 }
 
 //todo section1_Start
+//*start_ brill
 .main-slider {
+
+
 	&__body {}
 
 	&__item {}
@@ -93,6 +96,7 @@ body {
 	&__control {}
 }
 
+//*end_ brill
 .item-main-slider {
 	text-align: center;
 	padding: 30px 0px 100px 0px;
@@ -195,14 +199,15 @@ body {
 				}
 			}
 
-			//*end
+
 		}
 
+		//*end_ кнопка(section1)
 
-		@media (min-width:992px){
-			&:hover{
-				.btn__body span{
-					&::after{
+		@media (min-width:992px) {
+			&:hover {
+				.btn__body span {
+					&::after {
 						opacity: 0.2;
 						height: 100%;
 					}
@@ -211,8 +216,71 @@ body {
 		}
 	}
 
-} 
+}
 
+//*start_ brill(section1)
+
+.main-slider {
+	position: relative;
+
+	&__control {
+		position: absolute;
+		left: 50%;
+		width: 100px;
+		height: 100px;
+		bottom: 0px;
+		transform: translate(-50%, 85%);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&:after {
+			content: '';
+			background-color: #fff;
+			position: absolute;
+			width: 72%;
+			height: 72%;
+			top: 50%;
+			left: 50%;
+			transform:translate(-50%, -50%) rotate(-45deg);
+		}
+	}
+}
+
+.control-main-slider {
+	&__arrow {
+		position: relative;
+		z-index: 2;
+		background: url('../img/section1/Shape_6.png') 0 0 no-repeat;
+		width: 14px;
+		height: 24px;
+		cursor: pointer;
+
+		&_perv {}
+
+		&_next {
+			transform: rotate(-180deg);
+		}
+	}
+
+	&__decor {
+		position: relative;
+		z-index: 2;
+		margin: 0px 12px;
+		animation: rotate 5s infinite linear;
+	}
+}
+@keyframes rotate{
+	0% {
+
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+
+}
+
+//*end_ brill(section1)
 /*
 . {
 
