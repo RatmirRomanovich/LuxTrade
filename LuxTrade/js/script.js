@@ -10,6 +10,7 @@ if (iconMenu) {
 	});
 }
 //*(end);
+
 //*(start)_ реализация ВЫПАДАЮЩЕГО МЕНЮ.
 let user_icon = document.querySelector('.user-header__icon');
 user_icon.addEventListener('click', function (e) {

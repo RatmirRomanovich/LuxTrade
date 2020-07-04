@@ -164,6 +164,14 @@ body {
           flex: 1 1 auto;
 }
 
+._ibg img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
 .item-main-slider {
   text-align: center;
   padding: 30px 0px 100px 0px;
@@ -283,9 +291,9 @@ body {
   width: 100px;
   height: 100px;
   bottom: 0px;
-  -webkit-transform: translate(-50%, 85%);
-      -ms-transform: translate(-50%, 85%);
-          transform: translate(-50%, 85%);
+  -webkit-transform: translate(-50%, 50%);
+      -ms-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -374,13 +382,15 @@ body {
 .title__main {
   font-family: "PFDin";
   font-size: 35px;
-  line-height: 35px;
+  line-height: calc(40/35);
   text-transform: uppercase;
   letter-spacing: 5.25px;
 }
 
 .header {
   background-color: #1c242a;
+  position: relative;
+  z-index: 50;
 }
 
 .header__container {
@@ -564,6 +574,10 @@ body {
 }
 
 @media (max-width: 767.98px) {
+  .title__main {
+    font-size: 25px;
+  }
+
   .header__logo {
     position: absolute;
     left: 50%;
@@ -574,7 +588,7 @@ body {
   }
 
   .menu__body {
-    background-color: rgba(29, 37, 43, 0.8);
+    background-color: rgba(29, 37, 43, 0.98);
     position: fixed;
     width: 100%;
     height: 100%;
