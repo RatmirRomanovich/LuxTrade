@@ -15,7 +15,7 @@
 	}
 }
 
-@import url("https://fonts.googleapis.com/css?family=PT+Sans:regular,italic,700&subset=cirillic-ext");
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:regular,italic,700&display=swap&subset=cirillic-ext");
 @import "fonts.scss";
 
 //<Подключаем шрифты>=======================================================================================
@@ -49,6 +49,8 @@ body {
 	width: 100%;
 	min-height: 100%;
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
 
 }
 
@@ -76,6 +78,73 @@ body {
 	*/
 }
 
+//*слайдер
+._swiper {
+	overflow: hidden;
+}
+
+._swiper>div {
+	width: 100%;
+	height: 100%;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	position: relative;
+	-webkit-transition-property: -webkit-transform;
+	transition-property: -webkit-transform;
+	-o-transition-property: transform;
+	transition-property: transform;
+	transition-property: transform, -webkit-transform;
+}
+
+.swiper-container-initialized .swiper-slide {
+
+	flex-shrink: 0;
+}
+
+.swiper-container-android .swiper-slide,
+.swiper-container-android .swiper-wrapper {
+
+	transform: translate3d(0px, 0, 0);
+}
+
+.swiper-button-lock {
+	display: none !important;
+}
+
+.slick-slider {
+	position: relative;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+
+	transform: translate3d(0, 0, 0);
+}
+
+.slick-slider .slick-list {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+
+.slick-slider .slick-track {
+	position: relative;
+	width: 100%;
+	display: flex;
+	font-size: 0;
+}
+
+.slick-slider .slick-slide {
+	position: relative;
+}
+
+//*слайдер end
 //<Основная сетка>========================================================================================
 
 
@@ -86,18 +155,22 @@ body {
 
 //todo section1_Start
 //*start_ brill
-.main-slider {
+//.main-slider {
 
 
-	&__body {}
+//&__body {}
 
-	&__item {}
+//&__item {}
 
-	&__control {}
-}
+//&__control {}
+//}
 
 //*end_ brill
 //*slider adapt
+._ibg {
+	position: relative;
+}
+
 ._ibg img {
 	position: absolute;
 	width: 100%;
@@ -105,19 +178,26 @@ body {
 	top: 0;
 	left: 0;
 }
+
 //*slider adapt
 .item-main-slider {
 	text-align: center;
 	padding: 30px 0px 100px 0px;
 	position: relative;
+	color: #fff;
 
 	&__content {
-		color: #fff;
 		position: relative;
 		z-index: 2;
+		height: 100%;
 	}
 
-	&__container {}
+	&__container {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 
 	&__bg {
 		position: absolute;
@@ -132,100 +212,113 @@ body {
 		max-width: 700px;
 		font-family: "PT Sans";
 		font-size: 15px;
-	}
-
-	//*start_ кнопка(section1)
-	.btn {
-		margin: 55px 0px 0px 0px;
-		display: inline-block;
-		position: relative;
-
-		&:before,
-		&:after {
-			position: absolute;
-			left: 0;
-			height: 3px;
-			width: 100%;
-			content: "";
-		}
-
-		&:before {
-			top: 0;
-			background-color: #c3a774;
-		}
-
-		&:after {
-			bottom: 0;
-			background-color: #8d642d;
-		}
-
-		&__body {
-
-			&:before,
-			&:after {
-				content: "";
-				position: absolute;
-				top: 0;
-				height: 100%;
-				width: 3px;
-				background-image: linear-gradient(to top, #8d642d, #c3a774);
-			}
-
-			&:before {
-				left: 0;
-			}
-
-			&:after {
-				right: 0;
-			}
-
-			span {
-				display: inline-flex;
-				justify-content: center;
-				align-items: center;
-				min-height: 50px;
-				padding: 0px 50px;
-				text-transform: uppercase;
-				letter-spacing: 1.5px;
-				line-height: 21px;
-				color: #fff;
-				font-size: 15px;
-				font-family: "PFDin";
-				position: relative;
-
-				//*start_ делаем градиент
-				&::after {
-					content: "";
-					opacity: 0.06;
-					position: absolute;
-					transition: all .4s ease 0s;
-					height: 50%;
-					top: 0;
-					left: 0;
-					width: 100%;
-					background-image: linear-gradient(to top, #bb9c66 0%, rgba(187, 156, 102, 0) 100%);
-					//*end
-				}
-			}
-
-
-		}
-
-		//*end_ кнопка(section1)
-
-		@media (min-width:992px) {
-			&:hover {
-				.btn__body span {
-					&::after {
-						opacity: 0.2;
-						height: 100%;
-					}
-				}
-			}
-		}
+		flex: 1 1 auto;
 	}
 
 }
+
+//*start_ кнопка(section1)
+.btn {
+
+	//*модификатор для кнопки из section 2 (	&_big )
+
+	margin: 55px 0px 0px 0px;
+	display: inline-block;
+	position: relative;
+
+	&:before,
+	&:after {
+		position: absolute;
+		left: 0;
+		height: 3px;
+		width: 100%;
+		content: "";
+	}
+
+	&:before {
+		top: 0;
+		background-color: #c3a774;
+	}
+
+	&:after {
+		bottom: 0;
+		background-color: #8d642d;
+	}
+
+	&__body {
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			height: 100%;
+			width: 3px;
+			background-image: linear-gradient(to top, #8d642d, #c3a774);
+		}
+
+		&:before {
+			left: 0;
+		}
+
+		&:after {
+			right: 0;
+		}
+
+		span {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 50px;
+			padding: 0px 50px;
+			text-transform: uppercase;
+			letter-spacing: 1.5px;
+			line-height: 21px;
+			color: #fff;
+			font-size: 15px;
+			font-family: "PFDin";
+			position: relative;
+
+			//*start_ делаем градиент
+			&::after {
+				content: "";
+				opacity: 0.06;
+				position: absolute;
+				transition: all .4s ease 0s;
+				height: 50%;
+				top: 0;
+				left: 0;
+				width: 100%;
+				background-image: linear-gradient(to top, #bb9c66 0%, rgba(187, 156, 102, 0) 100%);
+				//*end
+			}
+		}
+	}
+
+	//*&_big
+	&_big {
+		.btn__body span {
+			color: #000;
+			font-size: 21px;
+			font-weight: 500;
+			letter-spacing: 0px;
+		}
+	}
+
+	@media (min-width:992px) {
+		&:hover {
+			.btn__body span {
+				&::after {
+					opacity: 0.2;
+					height: 100%;
+				}
+			}
+		}
+	}
+}
+
+
+//*end_ кнопка(section1)
 
 //*start_ brill(section1)
 
@@ -268,7 +361,7 @@ body {
 		height: 24px;
 		cursor: pointer;
 
-		&_perv {}
+		//&_perv {}
 
 		&_next {
 			transform: rotate(-180deg);
@@ -301,7 +394,9 @@ body {
 	&_ibg {}
 }
 */
+//*title общий для всех блоков
 .title {
+	text-align: center;
 
 	&__item {
 		font-size: 40px;
@@ -323,8 +418,386 @@ body {
 	}
 }
 
-
 //todo section1_End
+
+//todo section2(Lots)_ Start
+//*lots start
+
+//*header
+
+.lots {
+	padding: 85px 0px 63px 0px;
+
+	&__container {}
+
+	&__header {
+		margin: 0px 0px 40px 0px;
+	}
+
+	&__slider {}
+}
+
+.block-header {
+
+	&__title {
+		margin: 0px 0px 20px 0px;
+	}
+
+	&__decor {}
+}
+
+.block-decor {
+	display: flex;
+
+	&__items {
+		flex: 1 1 auto;
+		display: flex;
+		align-items: center;
+
+		&:before {
+			content: '';
+			height: 1px;
+			//width: 100%;
+			background-color: #bb9c66;
+			flex: 1 1 auto;
+		}
+
+		&:after {
+			content: '';
+			//width: 25px*0.721;
+			height: 25px*0.721;
+			border: 1px solid #bb9c66;
+			flex: 0 0 25px*0.721;
+			transform: rotate(-45deg);
+			margin: 0px 5px;
+		}
+
+		span {
+			display: flex;
+			align-items: center;
+			margin: 0px 5px;
+
+			&:before {
+				content: '';
+				flex: 0 0 10px;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				border: 1px solid #bb9c66;
+				margin: 0px 5px;
+			}
+
+			&:after {
+				content: '';
+				flex: 0 0 15px*0.708;
+				width: 15px*0.708;
+				height: 15px*0.708;
+				border: 1px solid #bb9c66;
+				transform: rotate(-45deg);
+			}
+		}
+
+		&:last-child {
+			flex-direction: row-reverse;
+
+			span {
+				flex-direction: row-reverse;
+			}
+		}
+	}
+
+	&__icon {
+		text-align: center;
+		flex: 0 0 145px;
+
+		img {
+			max-width: 70px;
+		}
+
+		@media (max-width: $md3 + px) {
+			flex: 0 0 95px;
+		}
+	}
+}
+
+//*header end
+
+//*lot body start
+.timer-lot {
+	transform: translate(-50%, 50%);
+	width: 72px;
+	height: 72px;
+	display: inline-flex;
+	align-items: center;
+	flex-direction: column;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	padding: 0px 0px 0px 0px;
+
+	div {
+		position: relative;
+		z-index: 2;
+	}
+
+	&:before {
+		content: '';
+		background-color: #fff;
+		width: 100%;
+		height: 100%;
+		transform: rotate(-45deg);
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&__icon {
+		height: 19px;
+		margin: 0px 0px 0px 0px;
+	}
+
+	&__item {
+		font-size: 18px;
+	}
+}
+
+//*инфо под часами (цена, декор)
+.lot {
+	text-align: center;
+	max-width: 250px;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	&__title {
+		color: #000;
+		font-weight: 500;
+		font-size: 21px;
+		font-family: "PFDin";
+		text-transform: uppercase;
+		line-height: calc(25 / 21);
+		flex: 1 1 auto;
+		position: relative;
+		z-index: 2;
+		margin: 0px 0px 30px/21px * 1em 0px;
+		@media (max-width: 975px){
+			font-size: 18px;
+		}
+		@media (min-width: 992px){
+			&:hover{
+				text-decoration: underline;
+				opacity: .7;
+			}
+		}
+	}
+
+	&__info {}
+
+	&__btn {
+		margin: 0px 25px;
+	}
+
+	&__header {
+		text-align: center;
+		margin: 0px 0px 30px 0px;
+		position: relative;
+	}
+
+	&__image {
+		display: block;
+		padding: 0px 0px 98% 0px;
+		border: 3px solid #bb9c66;
+	}
+
+	&__timer {}
+}
+
+.info-lot {
+	display: flex;
+	justify-content: center;
+	margin: 0px 0px 35px 0px;
+
+	&__statistic {
+		flex: 0 0 50px;
+		display: flex;
+		flex-direction: column;
+		text-items: center;
+	}
+
+	&__icon {
+		width: 25px * 0.72;
+		height: 25px * 0.72;
+		margin: 0px auto 10px auto;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+
+		picture {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			z-index: 2;
+		}
+
+		&::after {
+			content: '';
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			transform: rotate(-45deg);
+			background-color: #000;
+		}
+	}
+
+	&__value {
+		font-size: 14px;
+		border-bottom: 1px solid #bb9c66;
+	}
+
+	&__current-bet {
+		flex: 1 1 auto;
+		@media (max-width: 975px){
+			flex: 0 0 auto;
+		}
+	}
+}
+
+.current-bet-info-lot {
+	padding: 0px 5px;
+	position: relative;
+	@media (max-width: 975px){
+		padding: 0px 10px;
+	}
+	&::after {
+		content: '';
+		position: absolute;
+		width: 72px;
+		height: 72px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(-45deg);
+		border: 1px solid #ddcdb2;
+	}
+	div{
+		position: relative;
+		z-index: 2;
+	}
+
+	&__label {
+		margin: 0px 0px 5px 0px;
+	}
+
+	&__value {
+		font-family: 'BravoRGRegular';
+		line-height: 21px;
+		font-size: 50px;
+		color: #1c242a;
+		white-space: nowrap;
+		@media (max-width: 975px){
+			font-size: 35px;
+		}
+	}
+
+	&__currеncy {}
+}
+
+/*
+.btn {
+
+	&_big {}
+
+	&__body {}
+}
+*/
+//*инфо под часами (цена, декор)
+//*lot body end
+
+//*lots footer
+.slider-lots {
+	&__body {
+		margin: 0px -50px 50px;
+
+		.swiper-wrapper {
+			align-items: stretch;
+		}
+		@media (max-width: 975px){
+			margin: 0px -15px 50px;
+		}
+	}
+
+	&__slide {
+		padding: 0px 50px;
+		@media (max-width: 975px){
+			padding: 0px 15px;
+		}
+	}
+
+	&__control {}
+}
+
+.control-slider-lots {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__arrow {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		justify-content: flex-end;
+
+		span {
+			background: url('../img/section2/arrow.svg') left no-repeat;
+			flex: 0 0 108px;
+			overflow: hidden;
+			width: 108px;
+			height: 35px;
+			@media (max-width: 450px){
+				flex: 0 0 50px;
+			}
+		}
+
+		&:after {
+			content: '';
+			margin: 0px 5px;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			border: 1px solid #bb9c66;
+		}
+
+		&:last-child {
+			flex-direction: row-reverse;
+
+			span {
+				transform: rotate(-180deg);
+			}
+		}
+	}
+
+	&__link {
+		background: url('../img/section2/EllipseLink.png') 0 0 no-repeat;
+		//width: 100px;
+		height: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 21px;
+		color: #000;
+		font-weight: 500;
+		text-transform: uppercase;
+		font-family: "PFDin";
+		margin: 0px 20px;
+		flex: 0 0 100px;
+	}
+}
+
+//*lots footer
+
+//*lots end
+//todo section2(Lots)_ End
 //<ОСНОВНОЙ БЛОК>=========================================================================================
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>=========================================================
