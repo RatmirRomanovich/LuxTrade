@@ -1,4 +1,3 @@
-@@include('slick.min.js');
 @@include('burger.js');
 
 //*(start)_ реализация ВЫПАДАЮЩЕГО МЕНЮ.

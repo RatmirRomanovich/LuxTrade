@@ -580,11 +580,13 @@ body {
 		position: relative;
 		z-index: 2;
 		margin: 0px 0px 30px/21px * 1em 0px;
-		@media (max-width: 975px){
+
+		@media (max-width: 975px) {
 			font-size: 18px;
 		}
-		@media (min-width: 992px){
-			&:hover{
+
+		@media (min-width: 992px) {
+			&:hover {
 				text-decoration: underline;
 				opacity: .7;
 			}
@@ -658,7 +660,8 @@ body {
 
 	&__current-bet {
 		flex: 1 1 auto;
-		@media (max-width: 975px){
+
+		@media (max-width: 975px) {
 			flex: 0 0 auto;
 		}
 	}
@@ -667,9 +670,11 @@ body {
 .current-bet-info-lot {
 	padding: 0px 5px;
 	position: relative;
-	@media (max-width: 975px){
+
+	@media (max-width: 975px) {
 		padding: 0px 10px;
 	}
+
 	&::after {
 		content: '';
 		position: absolute;
@@ -680,7 +685,8 @@ body {
 		transform: translate(-50%, -50%) rotate(-45deg);
 		border: 1px solid #ddcdb2;
 	}
-	div{
+
+	div {
 		position: relative;
 		z-index: 2;
 	}
@@ -695,7 +701,8 @@ body {
 		font-size: 50px;
 		color: #1c242a;
 		white-space: nowrap;
-		@media (max-width: 975px){
+
+		@media (max-width: 975px) {
 			font-size: 35px;
 		}
 	}
@@ -722,14 +729,16 @@ body {
 		.swiper-wrapper {
 			align-items: stretch;
 		}
-		@media (max-width: 975px){
+
+		@media (max-width: 975px) {
 			margin: 0px -15px 50px;
 		}
 	}
 
 	&__slide {
 		padding: 0px 50px;
-		@media (max-width: 975px){
+
+		@media (max-width: 975px) {
 			padding: 0px 15px;
 		}
 	}
@@ -754,7 +763,8 @@ body {
 			overflow: hidden;
 			width: 108px;
 			height: 35px;
-			@media (max-width: 450px){
+
+			@media (max-width: 450px) {
 				flex: 0 0 50px;
 			}
 		}
@@ -798,6 +808,99 @@ body {
 
 //*lots end
 //todo section2(Lots)_ End
+
+//todo section_3 (image)_ Start
+.categories {
+
+	&__container {}
+
+	&__row {
+		display: flex;
+		margin: 0px -50px;
+	}
+
+	&__column {
+		padding: 0px 50px;
+		flex: 0 1 33.33333%;
+		margin: 0px 0px 50px 0px;
+	}
+
+	&__item {}
+
+	&__decor {
+
+	}
+}
+
+
+.item {
+	position: relative;
+	padding: 30px 10px 40px 10px;
+	height: 250px;
+	width: 250px;
+	border-radius: 50%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&__link {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		border-radius: 50%;
+		z-index: 3;
+		overflow: hidden;
+	}
+
+	&_bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+
+		&::after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, 0.7);
+		}
+	}
+
+	&__icon {
+		position: relative;
+		z-index: 2;
+		margin: 0px 0px 30px 0px;
+	}
+
+	&__deco {
+		text-align: center;
+		position: relative;
+		z-index: 2;
+	}
+
+	&__title {
+		color: #fff;
+		font-family: "PFDin";
+		font-size: 21px;
+		font-weight: 500;
+		line-height: 25px;
+		text-transform: uppercase;
+		letter-spacing: 2.1px;
+		position: relative;
+		z-index: 2;
+		flex: 1 1 auto;
+	}
+
+}
+
+//todo section_3 (image)_ End
 //<ОСНОВНОЙ БЛОК>=========================================================================================
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>=========================================================
