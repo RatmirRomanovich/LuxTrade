@@ -810,7 +810,14 @@ body {
 //todo section2(Lots)_ End
 
 //todo section_3 (image)_ Start
+
 .categories {
+	margin: 0px 0px 70px 0px;
+
+	&__items {
+		margin: 0px 0px 85px 0px;
+	}
+
 	&__container {
 		//*скрыл боковой декор
 		overflow: hidden;
@@ -830,7 +837,7 @@ body {
 	&__row {
 		display: flex;
 		flex-wrap: wrap;
-		margin: 0px -50px 85px;
+		margin: 0px -50px 0px;
 		position: relative;
 		padding: 37px 0px 0px 0px;
 
@@ -964,6 +971,13 @@ body {
 			margin: 0px 0px 0px 0px;
 		}
 	}
+
+	&__body {
+		padding: 10px 0px 25px 130px;
+		background: url(../img/section3/decor_p.png) left top no-repeat;
+	}
+
+
 }
 
 
@@ -1047,6 +1061,307 @@ body {
 }
 
 //todo section_3 (image)_ End
+
+//todo section-4_services _ Start
+
+.title {
+
+	&__main {
+
+		&_white {
+			color: white;
+		}
+	}
+}
+
+.services {
+	background-color: #242729;
+	padding: 60px 0px;
+
+	&__container {}
+
+	&__header {
+		margin: 0px 0px 40px 0px;
+	}
+}
+
+.services {
+
+	&__row {
+		display: flex;
+		margin: 0px -50px;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	&__column {
+		flex: 0 1 33.333%;
+		padding: 0px 50px;
+		margin: 0px 0px 40px 0px;
+
+		@media (max-width: 975px) {
+			flex: 0 1 50%;
+		}
+
+		@media (max-width: 640px) {
+			flex: 0 1 100%;
+		}
+	}
+
+	&__item {}
+}
+
+.service {
+	height: 100%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+
+	&__image {
+		height: 205px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0px 0px 20px 0px;
+	}
+
+	&__title {
+		flex: 1 1 auto;
+		color: #fff;
+		font-family: "PFDin";
+		font-size: 21px;
+		font-weight: 500;
+		line-height: calc(25 / 21);
+		text-transform: uppercase;
+		letter-spacing: 1.1px;
+	}
+
+	&__text {
+		color: #bb9c66;
+		font-family: "PT Sans";
+		font-size: 15px;
+		line-height: calc(25 / 15);
+		margin: 25px 0px 0px 0px;
+		max-height: 50px;
+		overflow: hidden;
+	}
+
+	&__btn {
+		position: relative;
+		color: #fff;
+		font-family: "PFDin";
+		font-size: 21px;
+		font-weight: 500;
+		line-height: calc(25 / 21);
+		text-transform: uppercase;
+		letter-spacing: 2.1px;
+		text-align: center;
+		margin: 30px 0px 0px 0px;
+
+		&:before {
+			content: '';
+			position: absolute;
+			background-color: #bb9c66;
+			height: 1px;
+			width: 100%;
+			top: 50%;
+			left: 0;
+		}
+
+		span {
+			background-color: #242729;
+			position: relative;
+			z-index: 2;
+			padding: 0px 15px;
+		}
+	}
+
+}
+
+//todo section-4_services _ End
+
+//todo section-5_quotes _ Start
+//*header
+.quotes {
+	padding: 64px 0px 75px 0px;
+
+	&__container {}
+
+}
+
+//*header
+
+//*slider start
+.quotes {
+
+	&__slider {}
+}
+
+.slider-quotes {
+
+	&__body {}
+
+	&__slide {
+		display: flex;
+		align-items: center;
+	}
+
+	&__image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0px 20px;
+		flex: 0 0 320px/950px * 100%;
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	&__content {
+		flex: 0 1 515px;
+	}
+
+	&__title {
+		font-size: 25px;
+		line-height: calc(30 / 25);
+		font-style: italic;
+		margin: 0px 0px 30px/25px * 1em 0px;
+	}
+
+	&__info {
+		color: #1c242a;
+		font-size: 15px;
+		line-height: calc(25 / 15);
+
+		p {
+			padding: 0px 0px 7px 0px;
+
+			&:last-child {
+				padding: 0px 0px 0px 0px;
+			}
+		}
+	}
+
+	&__control {}
+}
+
+//decor
+.control-slider-quotes {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 400px;
+	margin: 0px auto;
+
+	&__decor {
+		display: flex;
+		align-items: center;
+		flex: 0 1 33.333%;
+
+		&:before {
+			content: '';
+			flex: 1 1 auto;
+			height: 1px;
+			background-color: #bb9c66;
+		}
+
+		&:after {
+			content: '';
+			margin: 0px 0px 0px 5px;
+			width: 10px;
+			height: 10px;
+			border: 1px solid #bb9c66;
+			border-radius: 50%;
+		}
+
+		&:last-child {
+			flex-direction: row-reverse;
+
+			&:after {
+				margin: 0px 5px 0px 0px;
+			}
+		}
+	}
+
+	&__link {
+		text-align: center;
+		flex: 0 1 33.333%;
+	}
+
+
+	&__circle {
+		display: inline-flex;
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		border-radius: 50%;
+		border: 1px solid #bb9c66;
+		background: url(../img/section5_quotes/2-layers.svg) center no-repeat;
+	}
+
+
+}
+
+//*slider end
+//todo section-5_quotes _ end
+
+//todo section-6_info _ Start
+.info {
+
+	&__container {}
+
+	&__row {}
+
+	&__column {}
+
+	&__block {}
+
+	&__title {}
+
+	&__content {}
+
+	&__item {}
+
+	&__data {}
+
+	&__label {}
+
+	&__text {}
+
+	&__subscribe {}
+}
+
+.title-info {
+	display: flex;
+	align-items: center;
+
+	span {}
+}
+
+.subscribe {
+
+	&__title {}
+
+	&__body {}
+
+	&__column {}
+
+	&__text {}
+
+	&__form {}
+}
+
+.form-subscribe {
+
+	&__input {}
+
+	&__btn {}
+}
+
+.input {}
+
+//todo section-6_info _ Start
 //<ОСНОВНОЙ БЛОК>=========================================================================================
 
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>=========================================================
