@@ -36,13 +36,88 @@ $md4: 479.98;
 
 //<ОБНУЛЕНИЕ, общие параметры>============================================================================
 @import "null.scss";
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>=========================================================
+@import "header.scss";
+@import "footer.scss";
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>=========================================================
+
+//*input pattern start
+/*
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.input {
+	border-radius: 0 !important;
+	width: 100%;
+	display: block;
+	padding: 0px 20px;
+	&._focus{}
+	&._error{}
+}
+
+textarea.input{
+	resize: none;
+	padding: 0px 0px;
+}
+*/
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.input {
+	border-radius: 0 !important;
+	width: 100%;
+	height: 100%;
+	display: block;
+	padding: 0px 25px;
+	color: #4f4f4f;
+	font-size: 15px;
+
+	&._focus {
+		color: #000;
+	}
+
+	&._error {}
+}
+
+textarea.input {
+	resize: none;
+	padding: 0px 0px;
+}
+
+//*input end
 
 body {
 	font-family: "PT Sans";
 	font-size: 14px;
-	line-height: 25px; //line-height: calc(25 / 15); тогда будет меняться в зависимости от размера шрифта
+	line-height: calc(25 / 14); //line-height: calc(25 / 15); тогда будет меняться в зависимости от размера шрифта
 	font-weight: 400;
 }
+
+._ibg {
+	position: relative;
+}
+
+._ibg img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
 
 //<Оболочка>==============================================================================================
 .wrapper {
@@ -83,67 +158,6 @@ body {
 	overflow: hidden;
 }
 
-._swiper>div {
-	width: 100%;
-	height: 100%;
-	-webkit-box-sizing: content-box;
-	box-sizing: content-box;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: start;
-	-ms-flex-align: start;
-	align-items: flex-start;
-	position: relative;
-	-webkit-transition-property: -webkit-transform;
-	transition-property: -webkit-transform;
-	-o-transition-property: transform;
-	transition-property: transform;
-	transition-property: transform, -webkit-transform;
-}
-
-.swiper-container-initialized .swiper-slide {
-
-	flex-shrink: 0;
-}
-
-.swiper-container-android .swiper-slide,
-.swiper-container-android .swiper-wrapper {
-
-	transform: translate3d(0px, 0, 0);
-}
-
-.swiper-button-lock {
-	display: none !important;
-}
-
-.slick-slider {
-	position: relative;
-}
-
-.slick-slider .slick-track,
-.slick-slider .slick-list {
-
-	transform: translate3d(0, 0, 0);
-}
-
-.slick-slider .slick-list {
-	position: relative;
-	overflow: hidden;
-	width: 100%;
-}
-
-.slick-slider .slick-track {
-	position: relative;
-	width: 100%;
-	display: flex;
-	font-size: 0;
-}
-
-.slick-slider .slick-slide {
-	position: relative;
-}
-
 //*слайдер end
 //<Основная сетка>========================================================================================
 
@@ -167,17 +181,6 @@ body {
 
 //*end_ brill
 //*slider adapt
-._ibg {
-	position: relative;
-}
-
-._ibg img {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-}
 
 //*slider adapt
 .item-main-slider {
@@ -805,6 +808,13 @@ body {
 }
 
 //*lots footer
+.slider-lots {
+
+	&__body {
+		display: flex;
+	}
+
+}
 
 //*lots end
 //todo section2(Lots)_ End
@@ -975,6 +985,14 @@ body {
 	&__body {
 		padding: 10px 0px 25px 130px;
 		background: url(../img/section3/decor_p.png) left top no-repeat;
+		@media (max-width: 854px) {
+			text-align: center;
+			padding: 10px 0px 25px 0px;
+			background: none;
+		}
+		@media (max-width: 320px) {
+			padding: 20px 20px;
+		}
 	}
 
 
@@ -1204,6 +1222,10 @@ body {
 	&__slide {
 		display: flex;
 		align-items: center;
+
+		@media (max-width: 570px) {
+			display: block;
+		}
 	}
 
 	&__image {
@@ -1215,6 +1237,10 @@ body {
 
 		img {
 			max-width: 100%;
+
+			@media (max-width: 570px) {
+				margin: 25px 0px;
+			}
 		}
 	}
 
@@ -1308,12 +1334,35 @@ body {
 
 //todo section-6_info _ Start
 .info {
+	padding: 0px 0px 75px 0px;
+	@media (max-width: 770px) {
+		padding: 0px 0px 35px 0px;
+	}
 
 	&__container {}
 
-	&__row {}
+	&__row {
+		display: flex;
+		margin: 0px -22px;
+		flex-wrap: wrap;
 
-	&__column {}
+		@media (max-width: 770px) {
+			flex-direction: column;
+		}
+	}
+
+	&__column {
+		flex: 0 1 50%;
+		padding: 0px 22px;
+		margin: 0px 0px 55px 0px;
+		&:last-child {
+			margin: 0px 0px 0px 0px;
+			flex: 1 1 100%;
+		}
+		@media (max-width: 770px) {
+			margin: 0px 0px 25px 0px;
+		}
+	}
 
 	&__block {}
 
@@ -1321,13 +1370,34 @@ body {
 
 	&__content {}
 
-	&__item {}
+	&__item {
+		margin: 0px 0px 30px 0px;
+		@media (max-width: 770px) {
+			margin: 0px 0px 20px 0px;
+		}
+	}
 
-	&__data {}
+	&__data {
+		color: #bb9c66;
+		font-family: "PT Sans - Regular";
+		font-size: 12px;
+		margin: 0px 0px 5px 0px;
+	}
 
-	&__label {}
+	&__label {
+		color: #333333;
+		font-family: "PT Sans";
+		font-weight: 700;
+		text-decoration: underline;
+		display: inline-block;
+		margin: 0px 0px 5px 0px;
+	}
 
-	&__text {}
+	&__text {
+		font-family: "PT Sans - Regular";
+		font-size: 15px;
+		line-height: calc(21 / 15);
+	}
 
 	&__subscribe {}
 }
@@ -1335,28 +1405,96 @@ body {
 .title-info {
 	display: flex;
 	align-items: center;
+	fcolor: #000;
+	font-family: "PFDin";
+	font-size: 35px;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 3.5px;
+	margin: 0px 0px 30px 0px;
+	@media (max-width: 770px) {
+		margin: 0px 0px 15px 0px;
+	}
 
-	span {}
+	span {
+		&:first-child{
+			margin: 35px 15px 0px 0px;
+		}
+		&:last-child {
+			picture {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
 }
 
 .subscribe {
 
 	&__title {}
 
-	&__body {}
+	&__body {
+		display: flex;
+		margin: 0px -22px;
+		@media (max-width: 770px) {
+			display: block;
+		}
+	}
 
-	&__column {}
+	&__column {
+		flex: 0 1 50%;
+		margin: 0px 22px;
+	}
 
-	&__text {}
+	&__text {
+		font-size: 15px;
+		line-height: calc(21 / 15);
+		@media (max-width: 770px) {
+			margin-bottom: 25px;
+		}
+	}
 
 	&__form {}
 }
 
 .form-subscribe {
+	display: flex;
+	height: 50px;
+	border: 3px solid #bb9c66;
+	background-color: #ffffff;
 
-	&__input {}
+	&__input {
+		flex: 1 1 auto;
+	}
 
-	&__btn {}
+	&__btn {
+		position: relative;
+		flex: 0 0 95px;
+		background-color: #fff;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translate(0px, -50%);
+			width: 1px;
+			height: 32px;
+			background-color: #bb9c66;
+		}
+
+		span {
+			background: url(../img/section6_info/icon_arrow.svg) right no-repeat;
+			padding: 0px 32px 0px 0px;
+			color: #1c242a;
+			font-family: "PFDin";
+			font-size: 21px;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 2.12px;
+		}
+	}
 }
 
 .input {}
@@ -1364,7 +1502,3 @@ body {
 //todo section-6_info _ Start
 //<ОСНОВНОЙ БЛОК>=========================================================================================
 
-//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>=========================================================
-@import "header.scss";
-@import "footer.scss";
-//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>=========================================================
