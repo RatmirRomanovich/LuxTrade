@@ -2,7 +2,13 @@
 //Шапка
 .header {
 	background-color: #1c242a;
-	position: relative;
+	//*закрепляем хедер
+	//position: relative;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	//*закрепляем хедер
 	z-index: 50;
 	&__container {
 		position: relative;
@@ -24,10 +30,6 @@
 			transform: translate(-50%, -50%);
 		}
 	}
-
-	&__menu {}
-
-	&__actions {}
 }
 
 .menu {
@@ -169,12 +171,9 @@
 		z-index: 2;
 		background: url("../img/icons/BigGlobe.png") left no-repeat;
 
-		@media (max-width: 890px) {
-			padding: 0px 0px 0px 0px;
-
-			span {
-				display: none;
-			}
+		@media (max-width: 767px) {
+			margin: 0px 15px 0px 15px;
+			background: none;
 		}
 
 		@media (max-width: $md3+px) {
@@ -183,6 +182,14 @@
 			display: inline-block;
 			span {
 				display: inline-block;
+			}
+		}
+		
+		@media (max-width: 900px) {
+			padding: 0px 0px 0px 0px;
+
+			span {
+				display: none;
 			}
 		}
 	}
