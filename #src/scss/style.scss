@@ -168,9 +168,13 @@ body {
 
 //*SLIDEEEEEEEEEEEEEEEEEEEEEER
 //*=====================================
+/* Slider */
 
+	
 /* Слайдер */
-.slick-slider {}
+.slick-slider {
+	
+}
 
 //*=====================================
 
@@ -196,7 +200,7 @@ body {
 .slick-track {
 	//min-width: 0;
 	display: flex; //*выстраиваем слайды в ленту
-	align-items: flex-start; //*это условие для включения [ adaptiveHeight (2)]
+	align-items: stretch; //*это условие для включения [ adaptiveHeight (2)]
 }
 
 //*=====================================
@@ -333,7 +337,7 @@ body {
 .slider__item.slick-center {
 	opacity: 1;
 }
-//todo при centerMode:true END
+
 
 /*  todovertical:false, 
 .slider .slick-track{
@@ -368,6 +372,8 @@ body {
 
 //*slider adapt
 .item-main-slider {
+	display: flex;
+	justify-content: center;
 	text-align: center;
 	padding: 30px 0px 100px 0px;
 	position: relative;
@@ -911,9 +917,9 @@ body {
 //*lots footer
 .slider-lots {
 	min-width: 0px;
+
 	&__body {
 		margin: 0px -50px 50px;
-
 		.swiper-wrapper {
 			align-items: stretch;
 		}
@@ -1170,11 +1176,13 @@ body {
 	&__body {
 		padding: 10px 0px 25px 130px;
 		background: url(../img/section3/decor_p.png) left top no-repeat;
+
 		@media (max-width: 854px) {
 			text-align: center;
 			padding: 10px 0px 25px 0px;
 			background: none;
 		}
+
 		@media (max-width: 320px) {
 			padding: 20px 20px;
 		}
@@ -1509,6 +1517,7 @@ body {
 		border-radius: 50%;
 		border: 1px solid #bb9c66;
 		background: url(../img/section5_quotes/2-layers.svg) center no-repeat;
+		transition: 3s all ease ;
 	}
 
 
@@ -1520,6 +1529,7 @@ body {
 //todo section-6_info _ Start
 .info {
 	padding: 0px 0px 75px 0px;
+
 	@media (max-width: 770px) {
 		padding: 0px 0px 35px 0px;
 	}
@@ -1540,10 +1550,12 @@ body {
 		flex: 0 1 50%;
 		padding: 0px 22px;
 		margin: 0px 0px 55px 0px;
+
 		&:last-child {
 			margin: 0px 0px 0px 0px;
 			flex: 1 1 100%;
 		}
+
 		@media (max-width: 770px) {
 			margin: 0px 0px 25px 0px;
 		}
@@ -1557,6 +1569,7 @@ body {
 
 	&__item {
 		margin: 0px 0px 30px 0px;
+
 		@media (max-width: 770px) {
 			margin: 0px 0px 20px 0px;
 		}
@@ -1597,14 +1610,16 @@ body {
 	text-transform: uppercase;
 	letter-spacing: 3.5px;
 	margin: 0px 0px 30px 0px;
+
 	@media (max-width: 770px) {
 		margin: 0px 0px 15px 0px;
 	}
 
 	span {
-		&:first-child{
+		&:first-child {
 			margin: 35px 15px 0px 0px;
 		}
+
 		&:last-child {
 			picture {
 				display: flex;
@@ -1622,6 +1637,7 @@ body {
 	&__body {
 		display: flex;
 		margin: 0px -22px;
+
 		@media (max-width: 770px) {
 			display: block;
 		}
@@ -1635,6 +1651,7 @@ body {
 	&__text {
 		font-size: 15px;
 		line-height: calc(21 / 15);
+
 		@media (max-width: 770px) {
 			margin-bottom: 25px;
 		}
@@ -1686,4 +1703,3 @@ body {
 
 //todo section-6_info _ Start
 //<ОСНОВНОЙ БЛОК>=========================================================================================
-
