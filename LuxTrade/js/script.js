@@ -84,7 +84,7 @@ $(document).ready(function () {
 // Andrikanych Yevhen 2020
 // https://www.youtube.com/c/freelancerlifestyle
 
-"use strict";
+
 
 (function () {
 	let originalPositions = [];
@@ -252,15 +252,65 @@ move();
 let iconMenu = document.querySelector(".icon-menu");
 let body = document.querySelector("body");
 let menuBody = document.querySelector(".menu__body");
+let menuLinks = document.querySelectorAll('.menu__link'); //*обращаемся к ссылкам чтобы впоследствие при нажатие скрыть меню.
 if (iconMenu) {
 	iconMenu.addEventListener("click", function () {
 		iconMenu.classList.toggle("_active");
 		body.classList.toggle("lock");
 		menuBody.classList.toggle("_active");
 	});
-}
+};
+if (window.innerWidth < 800) {                            //*скрываем бургер при переходе по ссылке
+	for (i = 0; i < menuLinks.length; i += 1) {
+		menuLinks[i].addEventListener('click', () => {
+			iconMenu.classList.remove('_active');
+			body.classList.remove("lock");
+			menuBody.classList.remove('_active');
+		});
+	};
+};
 //*(end);
-//!(start)_
+//!scroll Start
+// Scroll to anchors
+(function () {
+
+	const smoothScroll = function (targetEl, duration) {
+		const headerElHeight = document.querySelector('.header').clientHeight;//высота .header (нужно указать селектор хедера чтобы вычислилась его высоту)
+		let target = document.querySelector(targetEl);
+		let targetPosition = target.getBoundingClientRect().top - headerElHeight;
+		let startPosition = window.pageYOffset;
+		let startTime = null;
+
+		const ease = function (t, b, c, d) {      //функция обработчик скрола
+			t /= d / 2;
+			if (t < 1) return c / 2 * t * t + b;
+			t--;
+			return -c / 2 * (t * (t - 2) - 1) + b;
+		};
+
+		const animation = function (currentTime) {		//функция анимации
+			if (startTime === null) startTime = currentTime;
+			const timeElapsed = currentTime - startTime;
+			const run = ease(timeElapsed, startPosition, targetPosition, duration);
+			window.scrollTo(0, run);
+			if (timeElapsed < duration) requestAnimationFrame(animation);
+		};
+		requestAnimationFrame(animation);
+
+	};
+
+	const scrollTo = function () {							// подвешивание классов
+		const links = document.querySelectorAll('.js-scroll');  //js-scroll подвешиваем данный класс всем ссылкам которым необходим скролл
+		links.forEach(each => {
+			each.addEventListener('click', function () {
+				const currentTarget = this.getAttribute('href');
+				smoothScroll(currentTarget, 1000);
+			});
+		});
+	};
+	scrollTo();
+}());
+//!scroll End;
 //*(start)_ реализация ВЫПАДАЮЩЕГО МЕНЮ.
 let user_icon = document.querySelector('.user-header__icon');
 user_icon.addEventListener('click', function (e) {
@@ -276,18 +326,5 @@ document.addEventListener('click', function (e) {
 		user_menu.classList.remove('_active');
 	}
 });
-//*(end)
-//!(end)
+//*(end);
 
-//!(start)_ Динамический адаптив(автоматическая перестановка классов и расположения тегов в html при изменении ширины экрана, по сути перемещаем элеммент на страницы из одного места в другое)
-/*<a data-move="№_1 menu__body,№_2 1,№_3 767 " href="" class="actions-header__region">
-		<span>Выбор Региона</span>
-	</a> 
-	№_1- куда отправляем элемент
-	№_2- каким по счету он должен там быть(начиная с 0)
-	№_3- при каком разрешении*/
-//!(end)
-
-//!Слайдер Start
-
-//!Слайдер End
